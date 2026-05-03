@@ -166,7 +166,7 @@ function ValueProps() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20">
         <div className="max-w-2xl mb-12">
           <span className="text-xs tracking-[0.01em] text-stone-500 font-medium">Why it matters</span>
-          <h2 className="font-display text-4xl font-semibold tracking-display mt-2">
+          <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-display mt-2 break-words">
             Buying a home is the biggest decision you’ll make.<br />
             <span className="text-stone-500">It’s also the least transparent.</span>
           </h2>
@@ -193,7 +193,7 @@ function DemoShowcase() {
         <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
           <div className="max-w-xl">
             <span className="text-xs tracking-[0.01em] text-stone-500 font-medium">See it in action</span>
-            <h2 className="font-display text-4xl font-semibold tracking-display mt-2">Sample the kind of data that will drive your decisions.</h2>
+            <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-display mt-2 break-words">Sample the kind of data that will drive your decisions.</h2>
             <p className="text-stone-600 mt-3">
               Because the truth isn’t one-size-fits-all.
             </p>
@@ -273,7 +273,7 @@ function HowItWorks() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20">
         <div className="max-w-2xl mb-12">
           <span className="text-xs tracking-[0.01em] text-stone-500 font-medium">How it works</span>
-          <h2 className="font-display text-4xl font-semibold tracking-display mt-2">From address → decision in seconds.</h2>
+          <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-display mt-2 break-words">From address → decision in seconds.</h2>
         </div>
         <ol className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((s, i) => (
@@ -306,7 +306,7 @@ function DataSources() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20 grid grid-cols-12 gap-10 lg:gap-16">
         <div className="col-span-12 md:col-span-5">
           <span className="text-xs tracking-[0.01em] text-stone-500 font-medium">Data sources</span>
-          <h2 className="font-display text-4xl font-semibold tracking-display mt-2">
+          <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-display mt-2 break-words">
             Built on the most widely used property intelligence in the U.S.
           </h2>
           <p className="text-stone-600 mt-4">
@@ -332,7 +332,7 @@ function CTA() {
   return (
     <section className="border-t border-mist bg-ink text-paper">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 text-center">
-        <h2 className="font-display text-5xl md:text-6xl font-semibold tracking-display !text-paper">
+        <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold tracking-display !text-paper break-words">
           Don’t buy on a feeling.
         </h2>
         <p className="text-stone-300 mt-5 text-lg max-w-xl mx-auto">

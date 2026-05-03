@@ -28,7 +28,7 @@ export function ReportSection({
               {eyebrow}
             </span>
           )}
-          <h2 className="text-3xl font-semibold tracking-display">{title}</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-display break-words">{title}</h2>
           {description && <p className="text-stone-600">{description}</p>}
         </div>
         {rightSlot}
