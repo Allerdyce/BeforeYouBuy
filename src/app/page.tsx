@@ -25,20 +25,31 @@ export default function Home() {
 function TopBar() {
   return (
     <header className="sticky top-0 z-30 border-b border-mist bg-canvas/85 backdrop-blur">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 h-16 flex items-center justify-between">
-        <Link href="/#top" className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-display">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-3">
+        <Link href="/#top" className="flex items-center gap-2 font-display text-base sm:text-lg font-semibold tracking-display min-w-0">
           <BrandMark className="h-7 w-auto shrink-0 text-ink" title="BeforeYouBuy" />
-          <span>
+          <span className="truncate">
             BeforeYouBuy<span className="text-clay">.</span>
           </span>
         </Link>
-        <nav className="hidden md:flex gap-8 text-sm text-stone-600">
-          <a href="#how" className="hover:text-ink transition-colors">How it works</a>
-          <a href="#sources" className="hover:text-ink transition-colors">Data sources</a>
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+          <div className="flex items-center gap-1">
+            <Link href="/" className="px-3 py-1 rounded-pill bg-ink text-paper text-sm">Homes</Link>
+            <Link href="/rentals" className="px-3 py-1 rounded-pill text-stone-600 hover:text-ink text-sm">Rentals</Link>
+          </div>
+          <a href="#how" className="text-stone-600 hover:text-ink transition-colors">How it works</a>
+          <a href="#sources" className="text-stone-600 hover:text-ink transition-colors">Data sources</a>
         </nav>
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm">Sign in</Button>
+        <div className="flex items-center gap-2 shrink-0">
+          <Button variant="ghost" size="sm" className="hidden sm:inline-flex">Sign in</Button>
           <Button size="sm">Run a report</Button>
+        </div>
+      </div>
+      {/* Mobile product tabs row */}
+      <div className="md:hidden border-t border-mist">
+        <div className="mx-auto max-w-7xl px-4 py-2 flex items-center gap-1">
+          <Link href="/" className="px-3 py-1 rounded-pill bg-ink text-paper text-sm">Homes</Link>
+          <Link href="/rentals" className="px-3 py-1 rounded-pill text-stone-600 hover:text-ink text-sm">Rentals</Link>
         </div>
       </div>
     </header>
@@ -375,6 +386,8 @@ function Footer() {
         <div className="col-span-6 md:col-span-3">
           <div className="text-xs text-stone-500 mb-3">Product</div>
           <ul className="space-y-2 text-sm text-stone-700">
+            <li><Link href="/" className="hover:text-ink">Homes</Link></li>
+            <li><Link href="/rentals" className="hover:text-ink">Rentals</Link></li>
             <li><a href="#how" className="hover:text-ink">How it works</a></li>
             <li><a href="#sources" className="hover:text-ink">Data sources</a></li>
           </ul>

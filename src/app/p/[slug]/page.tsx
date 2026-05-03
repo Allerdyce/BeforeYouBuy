@@ -138,9 +138,12 @@ function TopBar() {
             BeforeYouBuy<span className="text-clay">.</span>
           </span>
         </Link>
-        <nav className="hidden md:flex gap-8 text-sm text-stone-600">
-          <Link href="/" className="hover:text-ink transition-colors">Home</Link>
-          <Link href="/#how" className="hover:text-ink transition-colors">How it works</Link>
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+          <div className="flex items-center gap-1">
+            <Link href="/" className="px-3 py-1 rounded-pill bg-ink text-paper">Homes</Link>
+            <Link href="/rentals" className="px-3 py-1 rounded-pill text-stone-600 hover:text-ink">Rentals</Link>
+          </div>
+          <Link href="/#how" className="text-stone-600 hover:text-ink transition-colors">How it works</Link>
         </nav>
         <div className="flex items-center gap-2 shrink-0">
           <Button variant="ghost" size="sm" className="hidden sm:inline-flex">Save report</Button>
