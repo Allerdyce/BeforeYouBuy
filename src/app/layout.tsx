@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   title: "BeforeYouBuy — Know before you sign",
   description:
     "Property intelligence for buyers: surface liens, taxes, neighborhood and parcel insights before you make an offer.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

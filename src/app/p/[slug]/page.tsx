@@ -1,6 +1,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BrandMark } from "@/components/branding/BrandMark";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card, CardBody } from "@/components/ui/Card";
@@ -131,8 +132,11 @@ function TopBar() {
   return (
     <header className="sticky top-0 z-30 border-b border-mist bg-canvas/85 backdrop-blur">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-16 flex items-center justify-between">
-        <Link href="/" className="font-display text-lg font-semibold tracking-display">
-          BeforeYouBuy<span className="text-clay">.</span>
+        <Link href="/" className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-display">
+          <BrandMark className="h-7 w-auto shrink-0 text-ink" title="BeforeYouBuy" />
+          <span>
+            BeforeYouBuy<span className="text-clay">.</span>
+          </span>
         </Link>
         <nav className="hidden md:flex gap-8 text-sm text-stone-600">
           <Link href="/" className="hover:text-ink transition-colors">Home</Link>
@@ -1384,8 +1388,11 @@ function Footer() {
     <footer className="mt-24 border-t border-mist">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-12 grid grid-cols-12 gap-8">
         <div className="col-span-12 md:col-span-5">
-          <div className="font-display text-2xl font-semibold tracking-display">
-            BeforeYouBuy<span className="text-clay">.</span>
+          <div className="flex items-center gap-3 font-display text-2xl font-semibold tracking-display">
+            <BrandMark className="h-10 w-auto shrink-0 text-ink" title="BeforeYouBuy" />
+            <span>
+              BeforeYouBuy<span className="text-clay">.</span>
+            </span>
           </div>
           <p className="text-sm text-stone-600 mt-3 max-w-sm">
             The complete, independent dossier for any home before you make an offer. Powered by Cotality property data, public records, and MLS feeds.
