@@ -48,11 +48,11 @@ function TopBar() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-20 pb-24 grid grid-cols-12 gap-10 items-center">
-        <div className="col-span-12 lg:col-span-7 flex flex-col gap-6 min-w-0">
+      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10 pt-16 pb-20 lg:pt-20 lg:pb-24 flex flex-col lg:grid lg:grid-cols-12 lg:gap-10 lg:items-center">
+        <div className="lg:col-span-7 flex flex-col gap-6 min-w-0 w-full">
           <Badge tone="neutral" className="self-start">Every home has a story.</Badge>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-display leading-[0.95] text-balance">
-            Know what you’re<br />walking into.
+          <h1 className="font-display text-[2rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-display sm:leading-[0.95] text-balance break-words">
+            Know what you’re walking into.
           </h1>
           <p className="font-display text-xl sm:text-2xl md:text-3xl text-ink leading-tight max-w-xl">
             No guesswork. No blind spots.
@@ -80,7 +80,7 @@ function Hero() {
             ))}
           </div>
         </div>
-        <div className="hidden lg:block col-span-12 lg:col-span-5 relative">
+        <div className="hidden lg:block lg:col-span-5 relative">
           <HeroPreview />
         </div>
       </div>
