@@ -304,7 +304,7 @@ function DataSources() {
   return (
     <section id="sources" className="border-t border-mist">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20 grid grid-cols-12 gap-10 lg:gap-16">
-        <div className="col-span-12 md:col-span-5">
+        <div className="col-span-12 md:col-span-5 min-w-0">
           <span className="text-xs tracking-[0.01em] text-stone-500 font-medium">Data sources</span>
           <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-display mt-2 break-words">
             Built on the most widely used property intelligence in the U.S.
@@ -313,7 +313,7 @@ function DataSources() {
             BeforeYouBuy doesn’t just aggregate data — it reconciles and interprets it into a single opinionated view.
           </p>
         </div>
-        <div className="col-span-12 md:col-span-7 lg:pl-10 xl:pl-16">
+        <div className="col-span-12 md:col-span-7 lg:pl-10 xl:pl-16 min-w-0">
           <ul className="divide-y divide-mist border-y border-mist">
             {sources.map((s) => (
               <li key={s} className="py-4 flex items-center gap-4 text-sm">
