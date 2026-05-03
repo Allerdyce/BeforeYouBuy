@@ -341,13 +341,13 @@ function CTA() {
         <p className="text-stone-400 mt-2 text-sm max-w-xl mx-auto">
           Enter an address → get the full picture before you commit.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3 max-w-xl mx-auto">
+        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3 w-full max-w-xl mx-auto">
           <input
             type="text"
             placeholder="123 Main St, Anywhere, USA"
-            className="h-13 flex-1 rounded-pill bg-paper text-ink px-6 text-base focus:outline-none focus:ring-2 focus:ring-paper/30"
+            className="h-13 w-full sm:flex-1 min-w-0 rounded-pill bg-paper text-ink px-6 text-base focus:outline-none focus:ring-2 focus:ring-paper/30"
           />
-          <Button size="lg" variant="secondary">Run a report</Button>
+          <Button size="lg" variant="secondary" className="w-full sm:w-auto">Run a report</Button>
         </div>
         <div className="mt-6 text-xs text-stone-400">
           No account required to preview. Pay only when you order the full report.

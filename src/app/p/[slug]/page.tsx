@@ -98,7 +98,7 @@ export default async function PropertyPage({ params }: PageProps) {
       <TopBar />
       <Hero p={p} />
       <div className="mx-auto max-w-7xl px-6 lg:px-10 grid grid-cols-12 gap-8 lg:gap-12">
-        <aside className="col-span-12 lg:col-span-3 lg:py-12">
+        <aside className="hidden lg:block col-span-12 lg:col-span-3 lg:py-12">
           <div className="lg:sticky lg:top-24">
             <SidebarSummary p={p} />
             <ReportNav sections={SECTIONS} />
@@ -131,10 +131,10 @@ export default async function PropertyPage({ params }: PageProps) {
 function TopBar() {
   return (
     <header className="sticky top-0 z-30 border-b border-mist bg-canvas/85 backdrop-blur">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 font-display text-lg font-semibold tracking-display">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-3">
+        <Link href="/" className="flex items-center gap-2 font-display text-base sm:text-lg font-semibold tracking-display min-w-0">
           <BrandMark className="h-7 w-auto shrink-0 text-ink" title="BeforeYouBuy" />
-          <span>
+          <span className="truncate">
             BeforeYouBuy<span className="text-clay">.</span>
           </span>
         </Link>
@@ -142,8 +142,8 @@ function TopBar() {
           <Link href="/" className="hover:text-ink transition-colors">Home</Link>
           <Link href="/#how" className="hover:text-ink transition-colors">How it works</Link>
         </nav>
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm">Save report</Button>
+        <div className="flex items-center gap-2 shrink-0">
+          <Button variant="ghost" size="sm" className="hidden sm:inline-flex">Save report</Button>
           <Button size="sm">Get full report</Button>
         </div>
       </div>
