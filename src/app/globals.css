@@ -1,26 +1,129 @@
 @import "tailwindcss";
 
+/* =========================================================================
+   BeforeYouBuy — Design Tokens
+   Inspired by clean editorial real estate aesthetics (ref: Aruna).
+   Tailwind v4 CSS-first theme configuration.
+   ========================================================================= */
+
+@theme {
+  /* ---------- Color: Neutrals ---------- */
+  --color-paper: #ffffff;
+  --color-canvas: #fafaf7;            /* off-white page background */
+  --color-surface: #f4f3ee;           /* light card / band */
+  --color-mist: #ececea;              /* hairline / divider */
+  --color-stone-50: #f7f7f5;
+  --color-stone-100: #ececea;
+  --color-stone-200: #d8d7d2;
+  --color-stone-300: #b8b7b1;
+  --color-stone-400: #8c8b85;
+  --color-stone-500: #65655f;
+  --color-stone-600: #45453f;
+  --color-stone-700: #2c2c27;
+  --color-stone-800: #1a1a17;
+  --color-ink: #111110;               /* primary text / black */
+  --color-ink-soft: #2c2c27;
+
+  /* ---------- Color: Brand accents ---------- */
+  --color-clay: #b06a3b;              /* warm terracotta accent */
+  --color-moss: #4a5d3a;              /* muted green accent */
+  --color-sky-soft: #c9d6db;          /* cool tint */
+
+  /* ---------- Color: Semantic ---------- */
+  --color-success: #2f6b3a;
+  --color-warning: #b8860b;
+  --color-danger: #a3382f;
+  --color-info: #2d5a78;
+
+  /* ---------- Typography ---------- */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale (modular, slightly tight) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 4rem;
+  --text-6xl: 5.5rem;
+  --text-display: 7.5rem;
+
+  /* ---------- Radii ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---------- Shadows (soft, editorial) ---------- */
+  --shadow-xs: 0 1px 2px rgba(17, 17, 16, 0.04);
+  --shadow-sm: 0 2px 6px rgba(17, 17, 16, 0.05);
+  --shadow-md: 0 8px 24px rgba(17, 17, 16, 0.06);
+  --shadow-lg: 0 18px 48px rgba(17, 17, 16, 0.08);
+  --shadow-ring: 0 0 0 1px rgba(17, 17, 16, 0.06);
+
+  /* ---------- Easing & motion ---------- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 420ms;
+}
+
+/* ---------- Base ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: var(--color-canvas);
+  --foreground: var(--color-ink);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  /* Offset anchor targets so they sit below the sticky top bar (h-16). */
+  scroll-padding-top: 5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  letter-spacing: -0.005em;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.tracking-display {
+  letter-spacing: -0.04em;
+}
+
+.hairline {
+  border-color: var(--color-mist);
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-2px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
