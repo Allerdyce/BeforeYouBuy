@@ -184,17 +184,17 @@ function Hero({ p }: { p: Property }) {
           />
         )}
       </div>
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 -mt-44 relative z-10 pb-12">
-        <div className="rounded-3xl bg-paper border border-mist shadow-[var(--shadow-lg)] p-8 md:p-10 grid grid-cols-12 gap-8 items-end">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 -mt-44 relative z-10 pb-12">
+        <div className="rounded-3xl bg-paper border border-mist shadow-[var(--shadow-lg)] p-5 sm:p-8 md:p-10 grid grid-cols-12 gap-8 items-end">
           <div className="col-span-12 lg:col-span-8 flex flex-col gap-4">
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <Badge tone="neutral">CLIP {p.clip}</Badge>
               <Badge tone="neutral">{p.address.county} County, {p.address.state}</Badge>
               <Badge tone={p.listing.status === "Active" ? "success" : "neutral"}>
                 {p.listing.status}
               </Badge>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-display leading-[0.98]">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold tracking-display leading-[1.05] break-words">
               {p.address.line1}
             </h1>
             <p className="text-stone-600 text-lg">
@@ -209,7 +209,7 @@ function Hero({ p }: { p: Property }) {
               <span className="text-stone-500">{fmtUSD(p.hero.estimatedValue)} estimated value</span>
             </div>
           </div>
-          <div className="col-span-12 lg:col-span-4 flex items-center justify-end gap-6">
+          <div className="col-span-12 lg:col-span-4 flex items-center justify-start lg:justify-end gap-6 flex-wrap">
             <ScoreRing score={p.trustScore.overall} size={140} label="Trust score" />
             <div className="flex flex-col gap-3">
               <span className={`text-xs ${tone.fg} font-medium`}>

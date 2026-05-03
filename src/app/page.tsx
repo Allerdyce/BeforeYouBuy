@@ -50,7 +50,7 @@ function Hero() {
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold tracking-display leading-[0.95]">
             Know what you’re<br />walking into.
           </h1>
-          <p className="font-display text-2xl md:text-3xl text-ink leading-tight max-w-xl">
+          <p className="font-display text-xl sm:text-2xl md:text-3xl text-ink leading-tight max-w-xl">
             No guesswork. No blind spots.
           </p>
           <p className="text-stone-600 text-lg max-w-xl leading-relaxed">
