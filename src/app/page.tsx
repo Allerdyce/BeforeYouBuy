@@ -49,29 +49,29 @@ function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-20 pb-24 grid grid-cols-12 gap-10 items-center">
-        <div className="col-span-12 lg:col-span-7 flex flex-col gap-6">
+        <div className="col-span-12 lg:col-span-7 flex flex-col gap-6 min-w-0">
           <Badge tone="neutral" className="self-start">Every home has a story.</Badge>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold tracking-display leading-[0.95]">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-display leading-[0.95] text-balance">
             Know what you’re<br />walking into.
           </h1>
           <p className="font-display text-xl sm:text-2xl md:text-3xl text-ink leading-tight max-w-xl">
             No guesswork. No blind spots.
           </p>
-          <p className="text-stone-600 text-lg max-w-xl leading-relaxed">
+          <p className="text-stone-600 text-base sm:text-lg max-w-xl leading-relaxed">
             The most important purchase of your life shouldn’t come with unknowns. Liens, flood risk, ownership chain, neighborhood signals, market trajectory — get the facts.
           </p>
           <p className="text-sm text-stone-500 max-w-xl">
             Built on Cotality property intelligence.
           </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-2xl mt-2">
+          <form className="flex flex-col sm:flex-row gap-3 w-full max-w-2xl mt-2">
             <input
               type="text"
               placeholder="Enter an address, city, or ZIP"
-              className="h-13 flex-1 rounded-pill border border-mist bg-paper px-6 text-base focus:outline-none focus:border-ink/60 focus:ring-2 focus:ring-ink/10"
+              className="h-13 w-full sm:flex-1 min-w-0 rounded-pill border border-mist bg-paper px-6 text-base focus:outline-none focus:border-ink/60 focus:ring-2 focus:ring-ink/10"
             />
-            <Button size="lg" type="submit">Run a report</Button>
+            <Button size="lg" type="submit" className="w-full sm:w-auto">Run a report</Button>
           </form>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-stone-500 mt-2">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-stone-500 mt-2">
             <span>Or try a sample:</span>
             {PROPERTIES.map((p) => (
               <Link key={p.slug} href={`/p/${p.slug}`} className="text-ink underline-offset-4 hover:underline">
@@ -80,7 +80,7 @@ function Hero() {
             ))}
           </div>
         </div>
-        <div className="col-span-12 lg:col-span-5 relative">
+        <div className="hidden lg:block col-span-12 lg:col-span-5 relative">
           <HeroPreview />
         </div>
       </div>
