@@ -167,7 +167,7 @@ function ValueProps() {
         <div className="max-w-2xl mb-12">
           <span className="text-xs tracking-[0.01em] text-stone-500 font-medium">Why it matters</span>
           <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-display mt-2 break-words">
-            Buying a home is the biggest decision you’ll make.<br />
+            Buying a home is the biggest decision you’ll make.{" "}
             <span className="text-stone-500">It’s also the least transparent.</span>
           </h2>
           <p className="text-stone-600 mt-4 text-lg">We fix that.</p>
