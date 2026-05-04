@@ -91,35 +91,94 @@ function ProductTabs({ current }: { current: "homes" | "rentals" }) {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10 pt-12 pb-16 lg:pt-20 lg:pb-24 flex flex-col gap-6">
-        <Badge tone="neutral" className="self-start">Every rental has a story.</Badge>
-        <h1 className="font-display text-[2rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-display sm:leading-[0.95] text-balance break-words max-w-4xl">
-          Know what you’re renting.
-        </h1>
-        <p className="text-stone-600 text-base sm:text-lg max-w-2xl leading-relaxed">
-          No guesswork. No surprise problems. See rent history signals, flood risk, ownership records, neighborhood trends, listing details, and lease-risk indicators before you apply or sign.
-        </p>
-        <p className="text-sm text-stone-500 max-w-2xl">
-          Built on Cotality property intelligence and rental-market signals.
-        </p>
-        <form className="flex flex-col sm:flex-row gap-3 w-full max-w-2xl mt-2">
-          <input
-            type="text"
-            placeholder="Enter a rental address, city, or ZIP"
-            className="h-13 w-full sm:flex-1 min-w-0 rounded-pill border border-mist bg-paper px-6 text-base focus:outline-none focus:border-ink/60 focus:ring-2 focus:ring-ink/10"
-          />
-          <Button size="lg" type="submit" className="w-full sm:w-auto">Run a rental report</Button>
-        </form>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-stone-500 mt-2">
-          <span>Or try a sample:</span>
-          {RENTALS.map((r) => (
-            <Link key={r.slug} href={`/r/${r.slug}`} className="text-ink underline-offset-4 hover:underline">
-              {r.address.line1}
-            </Link>
-          ))}
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10 pt-12 pb-16 lg:pt-20 lg:pb-24 flex flex-col lg:grid lg:grid-cols-12 lg:gap-10 lg:items-center">
+        <div className="lg:col-span-7 flex flex-col gap-6 min-w-0 w-full">
+          <Badge tone="neutral" className="self-start">Every rental has a story.</Badge>
+          <h1 className="font-display text-[2rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-display sm:leading-[0.95] text-balance break-words">
+            Know what you’re renting.
+          </h1>
+          <p className="text-stone-600 text-base sm:text-lg max-w-xl leading-relaxed">
+            No guesswork. No surprise problems. See rent history signals, flood risk, ownership records, neighborhood trends, listing details, and lease-risk indicators before you apply or sign.
+          </p>
+          <p className="text-sm text-stone-500 max-w-xl">
+            Built on Cotality property intelligence and rental-market signals.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-3 w-full max-w-2xl mt-2">
+            <input
+              type="text"
+              placeholder="Enter a rental address, city, or ZIP"
+              className="h-13 w-full sm:flex-1 min-w-0 rounded-pill border border-mist bg-paper px-6 text-base focus:outline-none focus:border-ink/60 focus:ring-2 focus:ring-ink/10"
+            />
+            <Button size="lg" type="submit" className="w-full sm:w-auto">Run a rental report</Button>
+          </form>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-stone-500 mt-2">
+            <span>Or try a sample:</span>
+            {RENTALS.map((r) => (
+              <Link key={r.slug} href={`/r/${r.slug}`} className="text-ink underline-offset-4 hover:underline">
+                {r.address.line1}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="hidden lg:block lg:col-span-5 relative">
+          <HeroPreview />
         </div>
       </div>
     </section>
+  );
+}
+
+function HeroPreview() {
+  const [r1, r2] = RENTALS;
+  return (
+    <div className="relative h-[480px]">
+      <div className="absolute right-12 top-8 w-72 rotate-[-4deg]">
+        <PreviewCard r={r2} />
+      </div>
+      <div className="absolute left-0 top-24 w-80 rotate-[3deg]">
+        <PreviewCard r={r1} />
+      </div>
+      <div className="absolute right-0 bottom-4 rounded-3xl bg-paper border border-mist shadow-[var(--shadow-lg)] p-5 flex items-center gap-4">
+        <ScoreRing score={r1.confidence.overall} size={88} strokeWidth={9} />
+        <div className="text-sm">
+          <div className="font-medium">Rental confidence</div>
+          <div className="text-xs text-stone-500">across 7 signals</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PreviewCard({ r }: { r: (typeof RENTALS)[number] }) {
+  const [c1, c2, c3] = r.hero.photoGradient;
+  const heroImg = r.hero.images?.[0];
+  return (
+    <Card className="overflow-hidden shadow-[var(--shadow-lg)]">
+      <CardMedia>
+        {heroImg ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={heroImg} alt={r.address.line1} className="absolute inset-0 h-full w-full object-cover" />
+        ) : (
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                `radial-gradient(60% 80% at 30% 20%, ${c1}, transparent 70%),` +
+                `radial-gradient(70% 70% at 80% 60%, ${c2}, transparent 65%),` +
+                `linear-gradient(180deg, ${c2} 0%, ${c3} 100%)`,
+            }}
+          />
+        )}
+      </CardMedia>
+      <CardBody className="space-y-1">
+        <div className="text-sm font-medium">{r.address.line1}</div>
+        <div className="text-xs text-stone-500">{r.address.city}, {r.address.state}</div>
+        <div className="flex justify-between pt-2 text-xs text-stone-600">
+          <span>{r.hero.beds} bd · {r.hero.baths} ba · {fmtNum(r.hero.livingSqft)} sqft</span>
+          <span className="font-medium tabular-nums text-ink">{fmtUSD(r.hero.askingRent)}/mo</span>
+        </div>
+      </CardBody>
+    </Card>
   );
 }
 
